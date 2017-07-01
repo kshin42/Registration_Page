@@ -42,6 +42,24 @@ var bundler = watchify(browserify({
   fullPaths: true
 }));
 
+var bundlerArtifact = browserify({
+  entries: ['./src/app.js'],
+  transform: [reactify],
+  extensions: ['.js'],
+  debug: true,
+  cache: {},
+  packageCache: {},
+  fullPaths: true
+});
+
+function bundleArtifact(){
+  return bundlerArtifact
+    .bundle()
+    .on('error', notify)
+    .pipe(source('main.js'))
+    .pipe(gulp.dest('./dist'))
+}
+
 function bundle() {
   return bundler
     .bundle()
@@ -53,6 +71,10 @@ bundler.on('update', bundle);
 
 gulp.task('build', function() {
   bundle()
+});
+
+gulp.task('artifact', function() {
+  bundleArtifact()
 });
 
 gulp.task('serve', function(done) {
@@ -80,6 +102,8 @@ gulp.task('css', function () {
 });
 
 gulp.task('default', ['build', 'serve', 'css', 'watch']);
+
+gulp.task('deploy', ['artifact', 'css']);
 
 gulp.task('watch', function () {
   gulp.watch('./css/*.css', ['css']);
