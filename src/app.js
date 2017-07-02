@@ -5,9 +5,9 @@ var Hello = React.createClass({
   render: function() {
     return <div>
 
-      <div className="ui centered card"> 
+      <div className="ui centered card">
 
-    	<h2 className="ui center aligned icon header">Please Register Your Company</h2>
+    	<h2 className="ui center aligned icon header">Company Registration</h2>
 
       <div className="ui divider"></div>
 
