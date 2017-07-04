@@ -4,7 +4,7 @@ var Field = React.createClass ({
   render: function() {
     return <div className="field">
       <label>{this.props.label}</label>
-      <input type={this.props.type} placeholder={this.props.label}></input>
+      <input type={this.props.type} id={this.props.label} placeholder={this.props.label}></input>
     </div>
   }
 });

@@ -4,3 +4,13 @@
  	padding: 2em !important;
  	width: 60em !important;
 }
+
+.invalid {
+  border-color: red !important;
+  border-width: 2px !important;
+}
+
+.valid {
+  border-color: lime !important;
+  border-width: 2px !important;
+}

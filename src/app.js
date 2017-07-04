@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Form = require('./form.js');
+var Form = require('./components/form.js');
 
 var Hello = React.createClass({
   render: function() {
